@@ -10,13 +10,18 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 app.get('/simulacao', (req, res) => {
-  console.log(req.query)
+    console.log(req.query)
   var origem = req.query.origem
   var destino = req.query.destino
   var tempo = req.query.tempo
   var plano = req.query.plano
-  var valores = simular(origem, destino, tempo, plano)
+  if (validar(origem, destino)){
+    var valores = simular(origem, destino, tempo, plano)
     res.render('simulacao', {origem: origem, destino: destino, tempo: tempo, plano: plano, valorPlano: valores[0], valorSemPlano: valores[1]})
+  } else {
+    res.render('simulacao')
+  }
+  
 })
 
 app.listen(port, () =>
@@ -43,5 +48,6 @@ function simular(origem, destino, tempo, plano) {
 }
 
 function validar(origem, destino){
-    return origem === 11 || origem === 16 && destino === 11 || origem === 17 && destino === 11 || origem === 18 && destino === 11
+    console.log(origem)
+    return origem === '11' || origem === '16' && destino === '11' || origem === '17' && destino === '11' || origem === '18' && destino === '11'
 }

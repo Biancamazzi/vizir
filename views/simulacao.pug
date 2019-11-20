@@ -109,29 +109,34 @@
       <div class="container">
       <div class="row">
       <div class="col-md-12 col-sm-12 resultados">
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Origem</th>
-            <th scope="col">Destino</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Plano</th>
-            <th class ="complano" scope="col">Com FaleMais</th>
-            <th  class="semplano1" scope="col">Sem FaleMais</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>#{origem}</td>
-            <td>#{destino}</td>
-            <td>#{tempo}</td>
-            <td>#{plano}</td>
-            <td class="complano"> R$ #{valorPlano}</td>
-            <td class ="semplano"> R$ #{valorSemPlano}</td>
-          </tr>
-          <tr>
-        </tbody>
-      </table>
+      if origem
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Origem</th>
+              <th scope="col">Destino</th>
+              <th scope="col">Tempo</th>
+              <th scope="col">Plano</th>
+              <th class ="complano" scope="col">Com FaleMais</th>
+              <th  class="semplano1" scope="col">Sem FaleMais</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#{origem}</td>
+              <td>#{destino}</td>
+              <td>#{tempo}</td>
+              <td>#{plano}</td>
+              <td class="complano"> R$ #{valorPlano}</td>
+              <td class ="semplano"> R$ #{valorSemPlano}</td>
+            </tr>
+            <tr>
+          </tbody>
+        </table>
+      else
+        <div class="alert alert-danger" role="alert">
+        <p>Infelizmente ainda não temos planos com esse DDD de origem para o DDD de destino. Nao fique triste, em breve, teremos mais opções para suas ligações!</p>
+        </div>
     </section>
     <footer id="footer">
       <div class="top-footer">
@@ -160,10 +165,6 @@
         </div>
       </div>
     </footer>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="contactform/contactform.js"></script>
   </body>
 </html>
